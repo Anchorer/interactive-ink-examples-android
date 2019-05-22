@@ -2,6 +2,8 @@ import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.FileFilterUtils
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion project.ext.compileSdkVersion
@@ -21,6 +23,7 @@ android {
 dependencies {
     implementation "com.android.support:appcompat-v7:${project.ext.supportLibraryVersion}"
     implementation project(':UIReferenceImplementation')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 task DownloadAndExtractAssets(type: Copy) {
@@ -79,6 +82,9 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
             tmpAssetsDir.deleteDir()
         }
     }
+}
+repositories {
+    mavenCentral()
 }
 
 //preBuild.dependsOn(CopyAssets)

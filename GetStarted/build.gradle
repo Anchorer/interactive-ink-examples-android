@@ -2,6 +2,8 @@ import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.FileFilterUtils
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion project.ext.compileSdkVersion
@@ -21,6 +23,7 @@ android {
 dependencies {
     implementation "com.android.support:appcompat-v7:${project.ext.supportLibraryVersion}"
     implementation project(':UIReferenceImplementation')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 task DownloadAndExtractAssets(type: Copy) {
@@ -34,7 +37,7 @@ task DownloadAndExtractAssets(type: Copy) {
     def mathConf = new File(targetDir, "conf/math.conf")
     def textConf = new File(targetDir, "conf/en_US.conf")
 
-    /*if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
+    if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
         def tmpAssetsDir = new File(projectDir, "tmp-assets/")
         def zipDir = new File(tmpAssetsDir, "zips")
 
@@ -53,7 +56,7 @@ task DownloadAndExtractAssets(type: Copy) {
             from zipTree(zipFile)
             into tmpAssetsDir
         }
-    }*/
+    }
 }
 
 task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
@@ -63,7 +66,7 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
     def mathConf = new File(targetDir, "conf/math.conf")
     def textConf = new File(targetDir, "conf/en_US.conf")
 
-    /*if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
+    if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
         def tmpAssetsDir = new File(projectDir, "tmp-assets/")
 
         if (!tmpAssetsDir.isDirectory())
@@ -78,7 +81,10 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
         doLast {
             tmpAssetsDir.deleteDir()
         }
-    }*/
+    }
 }
 
-preBuild.dependsOn(CopyAssets)
+//preBuild.dependsOn(CopyAssets)
+repositories {
+    mavenCentral()
+}

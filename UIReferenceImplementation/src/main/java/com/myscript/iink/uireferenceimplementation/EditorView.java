@@ -194,7 +194,7 @@ public class EditorView extends FrameLayout implements IRenderTarget {
     }
 
     public int getInputMode() {
-        return inputController != null ? inputController.getInputMode() : InputController.INPUT_MODE_NONE;
+        return inputController != null ? inputController.getInputMode() : InputController.Companion.getINPUT_MODE_NONE();
     }
 
     @Override

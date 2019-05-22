@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       }
     });
 
-    setInputMode(InputController.INPUT_MODE_FORCE_PEN); // If using an active pen, put INPUT_MODE_AUTO here
+    setInputMode(InputController.Companion.getINPUT_MODE_FORCE_PEN()); // If using an active pen, put INPUT_MODE_AUTO here
 
     String packageName = "File1.iink";
     File file = new File(getFilesDir(), packageName);
@@ -202,13 +202,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     switch (v.getId())
     {
       case R.id.button_input_mode_forcePen:
-        setInputMode(InputController.INPUT_MODE_FORCE_PEN);
+        setInputMode(InputController.Companion.getINPUT_MODE_FORCE_PEN());
         break;
       case R.id.button_input_mode_forceTouch:
-        setInputMode(InputController.INPUT_MODE_FORCE_TOUCH);
+        setInputMode(InputController.Companion.getINPUT_MODE_FORCE_TOUCH());
         break;
       case R.id.button_input_mode_auto:
-        setInputMode(InputController.INPUT_MODE_AUTO);
+        setInputMode(InputController.Companion.getINPUT_MODE_AUTO());
         break;
       case R.id.button_undo:
         editorView.getEditor().undo();
@@ -228,9 +228,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   private void setInputMode(int inputMode)
   {
     editorView.setInputMode(inputMode);
-    findViewById(R.id.button_input_mode_forcePen).setEnabled(inputMode != InputController.INPUT_MODE_FORCE_PEN);
-    findViewById(R.id.button_input_mode_forceTouch).setEnabled(inputMode != InputController.INPUT_MODE_FORCE_TOUCH);
-    findViewById(R.id.button_input_mode_auto).setEnabled(inputMode != InputController.INPUT_MODE_AUTO);
+    findViewById(R.id.button_input_mode_forcePen).setEnabled(inputMode != InputController.Companion.getINPUT_MODE_FORCE_PEN());
+    findViewById(R.id.button_input_mode_forceTouch).setEnabled(inputMode != InputController.Companion.getINPUT_MODE_FORCE_TOUCH());
+    findViewById(R.id.button_input_mode_auto).setEnabled(inputMode != InputController.Companion.getINPUT_MODE_AUTO());
   }
 
   private void invalidateIconButtons()
