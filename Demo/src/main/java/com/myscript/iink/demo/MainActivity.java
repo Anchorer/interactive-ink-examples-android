@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     editorView.setEngine(engine);
 
     final Editor editor = editorView.getEditor();
+    // 暂时写死的theme
+    editor.setTheme(".text {\n" +
+            "  font-size: 30;\n" +
+            "  line-height: 2.5;\n" +
+            "}");
     editor.addListener(new IEditorListener()
     {
       @Override

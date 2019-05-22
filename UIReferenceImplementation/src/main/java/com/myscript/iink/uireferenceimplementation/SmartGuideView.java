@@ -479,8 +479,10 @@ public class SmartGuideView extends LinearLayout implements IEditorListener2, IR
       }
 
       final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
-      layoutParams.leftMargin = (int) x;
-      layoutParams.topMargin = (int) y - getHeight();
+//      layoutParams.leftMargin = (int) x;
+//      layoutParams.topMargin = (int) y - getHeight();
+      layoutParams.leftMargin = 0;
+      layoutParams.topMargin = 100;
       final LinearLayout.LayoutParams scrollViewLayoutParams = (LinearLayout.LayoutParams) scrollView.getLayoutParams();
       scrollViewLayoutParams.width = (int) width - styleView.getWidth() - moreView.getWidth();
 

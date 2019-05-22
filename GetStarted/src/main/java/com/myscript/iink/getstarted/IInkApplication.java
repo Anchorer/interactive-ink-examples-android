@@ -31,8 +31,7 @@ public class IInkApplication extends Application
     Configuration config = engine.getConfiguration();
     config.setStringArray("configuration-manager.search-path", new String[]{configDir});
     config.setString("lang", "zh_CN");
-    config.setString("text.configuration.name", "cur_text");
-
+    config.setBoolean("gesture.enable", false);
     return engine;
   }
 

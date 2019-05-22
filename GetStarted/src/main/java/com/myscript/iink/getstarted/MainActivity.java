@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     editorView.setEngine(engine);
 
     final Editor editor = editorView.getEditor();
+    editor.setTheme(".text {\n" +
+            "  font-size: 30;\n" +
+            "  line-height: 2.5;\n" +
+            "}");
     editor.addListener(new IEditorListener()
     {
       @Override
@@ -120,8 +124,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       @Override
       public void run()
       {
-        editorView.getRenderer().setViewOffset(0, 0);
-        editorView.getRenderer().setViewScale(1);
+//        editorView.getRenderer().setViewOffset(0, 0);
+//        editorView.getRenderer().setViewScale(1);
         editorView.setVisibility(View.VISIBLE);
         editor.setPart(contentPart);
       }

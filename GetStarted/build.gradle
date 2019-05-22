@@ -34,7 +34,7 @@ task DownloadAndExtractAssets(type: Copy) {
     def mathConf = new File(targetDir, "conf/math.conf")
     def textConf = new File(targetDir, "conf/en_US.conf")
 
-    if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
+    /*if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
         def tmpAssetsDir = new File(projectDir, "tmp-assets/")
         def zipDir = new File(tmpAssetsDir, "zips")
 
@@ -53,7 +53,7 @@ task DownloadAndExtractAssets(type: Copy) {
             from zipTree(zipFile)
             into tmpAssetsDir
         }
-    }
+    }*/
 }
 
 task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
@@ -63,7 +63,7 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
     def mathConf = new File(targetDir, "conf/math.conf")
     def textConf = new File(targetDir, "conf/en_US.conf")
 
-    if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
+    /*if (!diagramConf.exists() || !rawContentConf.exists() || !mathConf.exists() || !textConf.exists()) {
         def tmpAssetsDir = new File(projectDir, "tmp-assets/")
 
         if (!tmpAssetsDir.isDirectory())
@@ -78,7 +78,7 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
         doLast {
             tmpAssetsDir.deleteDir()
         }
-    }
+    }*/
 }
 
 preBuild.dependsOn(CopyAssets)

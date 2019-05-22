@@ -81,4 +81,4 @@ task CopyAssets(type: Copy, dependsOn: DownloadAndExtractAssets) {
     }
 }
 
-preBuild.dependsOn(CopyAssets)
+//preBuild.dependsOn(CopyAssets)

@@ -139,6 +139,7 @@ public class InputController implements View.OnTouchListener, GestureDetector.On
           editor.pointerEvents(pointerEvents, true);
         }
         editor.pointerUp(event.getX(pointerIndex), event.getY(pointerIndex), eventTimeOffset + event.getEventTime(), event.getPressure(), iinkPointerType, pointerId);
+
         return true;
 
       case MotionEvent.ACTION_CANCEL:
