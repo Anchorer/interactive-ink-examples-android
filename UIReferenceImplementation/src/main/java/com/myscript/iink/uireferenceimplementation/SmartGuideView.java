@@ -391,8 +391,6 @@ public class SmartGuideView extends LinearLayout implements IEditorListener2, IR
             Point left = transform.apply(rectangle.x + paddingLeft, rectangle.y);
             Point right = transform.apply(rectangle.x + rectangle.width - paddingRight, rectangle.y);
 
-            float x = left.x;
-            float y = left.y;
             float width = right.x - left.x;
 
             TextView styleView;
@@ -408,10 +406,8 @@ public class SmartGuideView extends LinearLayout implements IEditorListener2, IR
             }
 
             final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
-//      layoutParams.leftMargin = (int) x;
-//      layoutParams.topMargin = (int) y - getHeight();
             layoutParams.leftMargin = 0;
-            layoutParams.topMargin = 100;
+            layoutParams.topMargin = 0;
             final LinearLayout.LayoutParams scrollViewLayoutParams = (LinearLayout.LayoutParams) scrollView.getLayoutParams();
             scrollViewLayoutParams.width = (int) width - styleView.getWidth() - moreView.getWidth();
 
